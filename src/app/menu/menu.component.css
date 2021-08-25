@@ -2,6 +2,7 @@
     font-size: 16pt;
 }
 
+/* faz o cursor virar maozinha quando em cima do link */
 a{
-    cursor: pointer;
+    cursor: pointer; 
 }
