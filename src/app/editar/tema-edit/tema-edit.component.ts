@@ -24,13 +24,22 @@ export class TemaEditComponent implements OnInit {
       this.router.navigate(["/entrar"])
     }
 
-    let id = this.route.snapshot.params["id"] //id é o nome do parametro q eu passei na minha rota
+    let id = this.route.snapshot.params["id"] 
+    //id é o nome do parametro q eu passei na minha rota do app-routing
     this.findTemaById(id)
   }
 
   findTemaById(id: number){
     this.temaService.getTemaById(id).subscribe((resp: Tema) => {
       this.tema = resp
+    })
+  }
+
+  atualizar(){
+    this.temaService.putTema(this.tema).subscribe((resp: Tema) => {
+      this.tema = resp
+      alert("Tema atualizado com sucesso!")
+      this.router.navigate(["/tema"])
     })
   }
 
